@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+import java.util.stream.Collectors;
 @Service
 public class RuleService {
 
@@ -43,5 +43,6 @@ public class RuleService {
 
         System.out.println(listRules.toString());
         return "OK";
+
     }
 }
