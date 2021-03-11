@@ -1,0 +1,49 @@
+package droolRule ;
+//generated from Decision Table
+import java.util.Map;
+import java.util.List;
+global java.util.List listRules;
+global com.drools.unit.RuleHelpUtils help;
+// rule values at B10, header at B5
+rule "drools_10"
+	salience 65535
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL".equals("1011") || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL".equals("一级") || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL".equals("首席核保人") || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("首席核保人"))), "ALL".equals(200) || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>200)), "ALL".equals("ALL") || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>"ALL")))
+	then
+		listRules.add("首席核保人自留额大于标准值");
+end
+
+// rule values at B11, header at B5
+rule "drools_11"
+	salience 65534
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL".equals("1011") || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL".equals("一级") || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL".equals("首席核保人") || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("首席核保人"))), "ALL".equals("ALL") || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>"ALL")), "ALL".equals(200) || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>200)))
+	then
+		listRules.add("首席核保人保额大于标准值");
+end
+
+// rule values at B12, header at B5
+rule "drools_12"
+	salience 65533
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL".equals("1011") || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL".equals("一级") || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL".equals("高1级") || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("高1级"))), "ALL".equals(200) || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>200)), "ALL".equals("ALL") || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>"ALL")))
+	then
+		listRules.add("高1级核保人自留额大于标准值");
+end
+
+// rule values at B13, header at B5
+rule "drools_13"
+	salience 65532
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL".equals("1011") || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL".equals("一级") || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL".equals("高1级") || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("高1级"))), "ALL".equals("ALL") || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>"ALL")), "ALL".equals(200) || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>200)))
+	then
+		listRules.add("高1级核保人保额大于标准值");
+end
