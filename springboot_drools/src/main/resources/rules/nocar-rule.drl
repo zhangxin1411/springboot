@@ -1,0 +1,59 @@
+package droolRule;
+//generated from Decision Table
+import java.util.Map;
+import java.util.List;
+import com.drools.pojo.RuleInfoDto;
+global com.drools.unit.RuleHelpUtils help;
+global com.drools.pojo.UndwrtNoCarResultDto resultDto;
+// rule values at B10, header at B5
+rule "rule_10"
+	salience 65535
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL"=="01" || (null!=$map.get("mainDto").get("classCode")&&($map.get("mainDto").get("classCode").equals("01"))), "ALL"=="1011" || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL"=="一级" || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL"=="首席核保人" || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("首席核保人"))), "ALL"==200|| (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>200)), "ALL"=="ALL" || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>"ALL")))
+	then
+		resultDto.addQuotationRule(drools.getRule().getName(),"首席核保人自留额大于标准值",drools.getRule().getPackageName());
+		resultDto.setUndwrtLevel("首席核保人");
+		resultDto.setUndwrtFlag("0");resultDto.setPathName(drools.getRule().getPackageName());
+end
+
+// rule values at B11, header at B5
+rule "rule_11"
+	salience 65534
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL"=="01" || (null!=$map.get("mainDto").get("classCode")&&($map.get("mainDto").get("classCode").equals("01"))), "ALL"=="1011" || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL"=="一级" || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL"=="首席核保人" || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("首席核保人"))), "ALL"=="ALL"|| (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>"ALL")), "ALL"==200 || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>200)))
+	then
+		resultDto.addQuotationRule(drools.getRule().getName(),"首席核保人保额大于标准值",drools.getRule().getPackageName());
+		resultDto.setUndwrtLevel("首席核保人");
+		resultDto.setUndwrtFlag("0");resultDto.setPathName(drools.getRule().getPackageName());
+end
+
+// rule values at B12, header at B5
+rule "rule_12"
+	salience 65533
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL"=="01" || (null!=$map.get("mainDto").get("classCode")&&($map.get("mainDto").get("classCode").equals("01"))), "ALL"=="1011" || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL"=="一级" || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL"=="高1级" || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("高1级"))), "ALL"==200|| (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>200)), "ALL"=="ALL" || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>"ALL")))
+	then
+		resultDto.addQuotationRule(drools.getRule().getName(),"高1级核保人自留额大于标准值",drools.getRule().getPackageName());
+		resultDto.setUndwrtLevel("高1级");
+		resultDto.setUndwrtFlag("0");resultDto.setPathName(drools.getRule().getPackageName());
+end
+
+// rule values at B13, header at B5
+rule "rule_13"
+	salience 65532
+	lock-on-active true
+	agenda-group "sign"
+	when
+		$map:Map("ALL"=="01" || (null!=$map.get("mainDto").get("classCode")&&($map.get("mainDto").get("classCode").equals("01"))), "ALL"=="1011" || (null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011"))), "ALL"=="一级" || (null!=$map.get("mainDto").get("riskGrade")&&($map.get("mainDto").get("riskGrade").equals("一级"))), "ALL"=="高1级" || (null!=$map.get("otherDto").get("undwrtGrade")&&($map.get("otherDto").get("undwrtGrade").equals("高1级"))), "ALL"=="ALL"|| (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum"))>"ALL")), "ALL"==200 || (null!=$map.get("mainDto").get("riskNum")&&(Double.parseDouble(""+$map.get("mainDto").get("riskNum2"))>200)))
+	then
+		resultDto.addQuotationRule(drools.getRule().getName(),"高1级核保人保额大于标准值",drools.getRule().getPackageName());
+		resultDto.setUndwrtLevel("高1级");
+		resultDto.setUndwrtFlag("0");resultDto.setPathName(drools.getRule().getPackageName());
+end
+

@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://47.96.145.30:3306/test?serverTimezone=UTC&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  profiles:
+    active: dev #性能分析工具插件配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #配置SQL日志输出到控制台
+  global-config:
+    db-config:
+      logic-delete-value: 1 #配置逻辑删除成功数值
+      logic-not-delete-value: 0
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.mybatis.pojo

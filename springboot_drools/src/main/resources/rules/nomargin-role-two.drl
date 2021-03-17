@@ -1,0 +1,22 @@
+package com.ceshi.droolRule;
+import java.util.Map;
+import java.util.List
+import com.drools.pojo.UndwrtNoCarResultDto
+import com.drools.pojo.Student
+global com.drools.pojo.UndwrtNoCarResultDto resultDto;
+global java.util.ArrayList resultList;
+global com.drools.unit.RuleHelpUtils help;
+rule "drools_10"
+	when
+		$map:Map(null!=$map.get("mainDto").get("riskCode")&&($map.get("mainDto").get("riskCode").equals("1011")))
+	then
+		resultDto.addQuotationRule(drools.getRule().getName(),"首席核保人自留额大于标准值",drools.getRule().getPackageName());
+        		resultDto.setUndwrtLevel("首席核保人");
+        		resultDto.setUndwrtFlag("0");resultDto.setPathName(drools.getRule().getPackageName());end
+
+rule "drools_11"
+    when
+        $stu:Student($stu.age == 23)
+    then
+     System.out.println("drools_11 成功匹配");
+end

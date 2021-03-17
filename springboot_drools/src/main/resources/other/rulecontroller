@@ -1,0 +1,13 @@
+{
+    "mainDto":{
+        "riskCode":"1011"
+    },
+    "applicantDto":{
+        "isBlacklist":null
+    },
+    "insuredDtoList":[
+        {
+            "insuredCode":"200048613"
+        }
+    ]
+}

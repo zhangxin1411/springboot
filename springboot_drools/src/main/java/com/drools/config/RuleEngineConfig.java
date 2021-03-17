@@ -39,7 +39,8 @@ public class RuleEngineConfig {
         Resource[] files = resourcePatternResolver.getResources(BASE_RULES_PATH + RULES_PATH + "**/*.*");
 
         for (Resource file : files) {
-            String path = RULES_PATH + file.getFilename();
+            String url = file.getURI().toString();
+            String path = RULES_PATH + url.substring(url.lastIndexOf(RULES_PATH)+RULES_PATH.length(),url.length());
             LOGGER.info("path="+path);
             kieFileSystem.write(ResourceFactory.newClassPathResource(path, "UTF-8"));
         }
