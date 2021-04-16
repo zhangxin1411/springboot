@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: springboot_activiti
+  datasource:
+    druid:
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///activiti?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT
+activiti:
+  database-schema-update: true
+  db-history-used: true
+  history-level: full
